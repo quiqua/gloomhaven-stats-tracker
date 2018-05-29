@@ -1,0 +1,46 @@
+ext {
+    //Libraries
+    android_support_version = '27.1.1'
+    android_databinding_version = '2.3.0'
+    android_architecture_lifecycle_version = '1.1.1'
+    dagger_version = '2.8'
+    kotlin_version = '1.2.41'
+    rx_version = '2.0.2'
+    timber_version = '4.1.2'
+
+
+    //Tests
+    junit_version = "4.1.2"
+    mockito_version = "2.18.3"
+    mockito_kotlin_version = "1.5.0"
+    hamcrest_version = "2.0.0.0"
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Android Architecture Components ViewModel and Livedata
+    implementation "android.arch.lifecycle:extensions:$android_architecture_lifecycle_version"
+    implementation "android.arch.lifecycle:runtime:$android_architecture_lifecycle_version"
+    kapt "android.arch.lifecycle:compiler:$android_architecture_lifecycle_version"
+
+    // dependency injection via Dagger
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
+
+    // logging via Timber
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // reactive programming via RxJava and RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:$rx_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_version"
+
+
+    testImplementation "junit:junit:${junit_version}"
+    testImplementation "org.mockito:mockito-core:${mockito_version}"
+    testImplementation "com.nhaarman:mockito-kotlin:${mockito_kotlin_version}"
+    testImplementation "org.hamcrest:hamcrest-junit:${hamcrest_version}"
+}

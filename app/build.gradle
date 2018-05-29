@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "eu.quiqua.gloomhaven.statstracker"
+        minSdkVersion 23
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        // Main source set is Kotlin!
+        main.java.srcDirs += 'src/main/kotlin'
+
+        // Unit tests live in src/unitTest.
+        test.java.srcDir 'src/unitTests/kotlin'
+
+        // Integration tests live in src/integrationTest.
+        test.java.srcDir 'src/integrationTests/kotlin'
+
+        // Functional tests live in src/functionalTests.
+        androidTest.java.srcDir 'src/functionalTests/kotlin'
+    }
+}
+
+apply from: '../gradle/dependencies.gradle'
