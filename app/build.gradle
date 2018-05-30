@@ -45,4 +45,4 @@ android {
 
 apply from: '../gradle/dependencies.gradle'
 
-apply from: '../gradle/static_analysis.gradle'
+apply from: '../gradle/static-analysis.gradle'
