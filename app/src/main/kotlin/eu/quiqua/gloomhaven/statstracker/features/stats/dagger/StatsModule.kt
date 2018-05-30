@@ -7,6 +7,6 @@ import dagger.Provides
 class StatsModule() {
 
     @Provides
-    fun getModel(): String = "hello world"
+    fun provideModel(): String = "hello world"
 
 }
