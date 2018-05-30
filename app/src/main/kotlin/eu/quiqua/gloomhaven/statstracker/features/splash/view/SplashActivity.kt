@@ -1,11 +1,11 @@
-package eu.quiqua.gloomhaven.statstracker.ui.splash
+package eu.quiqua.gloomhaven.statstracker.features.splash.view
 
 import android.content.Intent
 import android.os.Bundle
-import eu.quiqua.gloomhaven.statstracker.ui.base.BaseActivity
-import eu.quiqua.gloomhaven.statstracker.ui.stats.StatsActivity
+import eu.quiqua.gloomhaven.statstracker.base.view.BaseActivity
+import eu.quiqua.gloomhaven.statstracker.features.stats.view.StatsActivity
 
-class SplashActivity: BaseActivity() {
+class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
