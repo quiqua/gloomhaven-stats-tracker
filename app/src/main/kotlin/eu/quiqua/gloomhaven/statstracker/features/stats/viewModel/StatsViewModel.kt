@@ -10,10 +10,10 @@ class StatsViewModel @Inject constructor(application: android.app.Application) :
 
     init {
         DaggerStatsComponent.builder()
-                .applicationComponent((application as Application).applicationComponent)
-                .statsModule(StatsModule())
-                .build()
-                .inject(this)
+            .applicationComponent((application as Application).applicationComponent)
+            .statsModule(StatsModule())
+            .build()
+            .inject(this)
     }
 
     @Inject

@@ -8,5 +8,4 @@ class StatsModule {
 
     @Provides
     fun provideModel(): String = "hello world"
-
 }
