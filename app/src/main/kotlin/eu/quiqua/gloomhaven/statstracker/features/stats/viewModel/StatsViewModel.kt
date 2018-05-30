@@ -1,4 +1,4 @@
-package eu.quiqua.gloomhaven.statstracker.features.stats.model
+package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 
 import android.arch.lifecycle.AndroidViewModel
 import eu.quiqua.gloomhaven.statstracker.app.Application
