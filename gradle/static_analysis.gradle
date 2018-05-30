@@ -1,0 +1,7 @@
+detekt {
+    version = "1.0.0.RC7"
+    defaultProfile {
+        input = file("src/main/kotlin")
+        filters = ".*/resources/.*,.*/build/.*"
+    }
+}

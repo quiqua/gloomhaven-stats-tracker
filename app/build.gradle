@@ -1,12 +1,10 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-kapt'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-
+plugins {
+    id "com.android.application"
+    id "kotlin-kapt"
+    id "kotlin-android"
+    id "kotlin-android-extensions"
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC7"
+}
 
 android {
     compileSdkVersion 27
@@ -45,3 +43,5 @@ android {
 }
 
 apply from: '../gradle/dependencies.gradle'
+
+apply from: '../gradle/static_analysis.gradle'
