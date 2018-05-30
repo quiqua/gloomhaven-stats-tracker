@@ -8,3 +8,28 @@ detekt {
         outputName = "detekt"
     }
 }
+
+spotless {
+    kotlin {
+        target "src/main/**/*.kt"
+        // Optional user arguments can be set as such:
+        ktlint().userData(['indent_size': '4', 'continuation_indent_size' : '4'])
+
+        // also supports license headers
+        //licenseHeader '/* Licensed under Apache-2.0 */'	// License header
+    }
+    format 'misc', {
+        // target determines which files this format will apply to
+        // - if you pass a string or a list of strings, they will be treated
+        //       as 'include' parameters to a fileTree in the root directory
+        // - if you pass a FileCollection, it will pass through untouched
+        //       e.g. project.files('build.gradle', 'settings.gradle')
+        // - if you pass anything else, it will be sent to project.files(yourArg)
+        target '**/*.gradle', '**/*.md', '**/.gitignore'
+
+        // spotless has built-in rules for the most basic formatting tasks
+        trimTrailingWhitespace()
+        indentWithSpaces(4) // or spaces. Takes an integer argument if you don't like 4
+        endWithNewline()
+    }
+}
