@@ -1,7 +1,10 @@
 detekt {
     version = "1.0.0.RC7"
     defaultProfile {
+        config = file("$project.rootDir/config/detekt.yml")
         input = file("src/main/kotlin")
         filters = ".*/resources/.*,.*/build/.*"
+        output = file("$project.rootDir/build/reports")
+        outputName = "detekt"
     }
 }
