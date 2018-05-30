@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="eu.quiqua.gloomhaven.statstracker.ui.stats.StatsViewModel"/>
+            type="eu.quiqua.gloomhaven.statstracker.features.stats.model.StatsViewModel"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat

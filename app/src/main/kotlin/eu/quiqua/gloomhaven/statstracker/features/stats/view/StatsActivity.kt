@@ -1,13 +1,14 @@
-package eu.quiqua.gloomhaven.statstracker.ui.stats
+package eu.quiqua.gloomhaven.statstracker.features.stats.view
 
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import eu.quiqua.gloomhaven.statstracker.R
+import eu.quiqua.gloomhaven.statstracker.base.view.BaseActivity
 import eu.quiqua.gloomhaven.statstracker.databinding.ActivityStatsBinding
-import eu.quiqua.gloomhaven.statstracker.ui.base.BaseActivity
+import eu.quiqua.gloomhaven.statstracker.features.stats.model.StatsViewModel
 
-class StatsActivity: BaseActivity() {
+class StatsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
