@@ -5,7 +5,11 @@ plugins {
     id "org.jetbrains.kotlin.android.extensions"
     id "io.gitlab.arturbosch.detekt" version "1.0.0.RC7"
     id "com.diffplug.gradle.spotless" version "3.12.0"
+    id "de.mannodermaus.android-junit5"
 }
+
+apply from: '../gradle/dependencies.gradle'
+apply from: '../gradle/static-analysis.gradle'
 
 android {
     compileSdkVersion 27
@@ -33,7 +37,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
 
         // Unit tests live in src/unitTest.
-        test.java.srcDir 'src/unitTests/kotlin'
+        test.java.srcDir 'src/test/kotlin'
 
         // Integration tests live in src/integrationTest.
         test.java.srcDir 'src/integrationTests/kotlin'
@@ -41,8 +45,16 @@ android {
         // Functional tests live in src/functionalTests.
         androidTest.java.srcDir 'src/functionalTests/kotlin'
     }
+
+    testOptions {
+        junitPlatform {
+            filters {
+                engines {
+                    include "spek"
+                }
+            }
+        }
+    }
 }
 
-apply from: '../gradle/dependencies.gradle'
 
-apply from: '../gradle/static-analysis.gradle'
