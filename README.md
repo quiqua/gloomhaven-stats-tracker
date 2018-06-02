@@ -28,3 +28,8 @@ This project uses [detekt](https://github.com/arturbosch/detekt) and [ktlint](ht
 The code analysis plugins are run, whenever `gradle check` is invoked.
 
 To format your code, you can run `gradle spotlessApply`.
+
+
+## Tests
+
+- recommended Android Studio Plugin: Spek to execute Spek via the IDE

@@ -9,10 +9,9 @@ ext {
     timber_version = '4.1.2'
 
     //Tests
-    junit_version = "4.1.2"
-    mockito_version = "2.18.3"
-    mockito_kotlin_version = "1.5.0"
-    hamcrest_version = "2.0.0.0"
+    junit_jupiter_version = '5.2.0'
+    mockk_version = '1.8'
+    spek_version = '1.1.5'
 }
 
 
@@ -42,11 +41,23 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rx_version"
 
     // testing with JUnit5, Spek and MockK
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
-    testImplementation junit5.unitTests()
 
-    testImplementation 'org.jetbrains.spek:spek-api:1.1.5'
-    testRuntimeOnly 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
+    // JUnit5 is added via the android-junit5 plugin. If explicit versions are required, add them here I guess
+    //testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_jupiter_version"
+    //testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_jupiter_version"
+    //testRuntimeOnly "org.junit.platform:junit-platform-launcher:$junit_jupiter_version"
+
+    testImplementation("org.jetbrains.spek:spek-api:$spek_version") {
+        exclude group: "org.jetbrains.kotlin"
+    }
+    testCompileOnly("org.jetbrains.spek:spek-junit-platform-engine:$spek_version") {
+        exclude group: "org.junit.platform"
+        exclude group: "org.jetbrains.kotlin"
+    }
+
+    testImplementation "io.mockk:mockk:$mockk_version"
+    // apply android-junit5 shenanigans
+    testImplementation junit5.unitTests()
+    testCompileOnly junit5.unitTestsRuntime()
 
 }
