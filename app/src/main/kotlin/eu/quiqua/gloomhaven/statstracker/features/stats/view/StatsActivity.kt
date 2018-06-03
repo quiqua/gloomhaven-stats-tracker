@@ -1,5 +1,6 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.view
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -15,10 +16,20 @@ class StatsActivity : BaseActivity() {
         init()
     }
 
+    private lateinit var binding: ActivityStatsBinding
+
     private fun init() {
         val statsViewModel = ViewModelProviders.of(this).get(StatsViewModel::class.java)
 
-        val binding = DataBindingUtil.setContentView<ActivityStatsBinding>(this, R.layout.activity_stats)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_stats)
         binding.viewModel = statsViewModel
+
+        statsViewModel.mutableHp.observe(this, Observer {
+            it?.let { binding.currentHpLabel.text = "$it" }
+        })
+
+        statsViewModel.mutableXp.observe(this, Observer {
+            it?.let { binding.currentXpLabel.text = "$it" }
+        })
     }
 }
