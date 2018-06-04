@@ -61,6 +61,5 @@ dependencies {
     testImplementation junit5.unitTests()
     testCompileOnly junit5.unitTestsRuntime()
 
-    testImplementation "com.natpryce:hamkrest:1.4.2.2"
-
+    testImplementation "com.natpryce:hamkrest:$hamkrest_version"
 }
