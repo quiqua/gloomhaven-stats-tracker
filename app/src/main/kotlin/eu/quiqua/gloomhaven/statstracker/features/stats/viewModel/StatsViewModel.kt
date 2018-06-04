@@ -1,4 +1,4 @@
-package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
+package eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel
 
 import android.arch.lifecycle.AndroidViewModel
 import eu.quiqua.gloomhaven.statstracker.app.Application
@@ -10,10 +10,10 @@ class StatsViewModel @Inject constructor(application: android.app.Application) :
 
     init {
         DaggerStatsComponent.builder()
-                .applicationComponent((application as Application).applicationComponent)
-                .statsModule(StatsModule())
-                .build()
-                .inject(this)
+            .applicationComponent((application as Application).applicationComponent)
+            .statsModule(StatsModule())
+            .build()
+            .inject(this)
     }
 
     @Inject

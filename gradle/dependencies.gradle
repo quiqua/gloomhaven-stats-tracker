@@ -1,13 +1,12 @@
 ext {
     //Libraries
     android_support_version = '27.1.1'
-    android_databinding_version = '2.3.0'
+    android_databinding_version = '3.1.2'
     android_architecture_lifecycle_version = '1.1.1'
     dagger_version = '2.8'
     kotlin_version = '1.2.41'
     rx_version = '2.0.2'
     timber_version = '4.1.2'
-
 
     //Tests
     junit_version = "4.1.2"
@@ -26,6 +25,9 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$android_architecture_lifecycle_version"
     implementation "android.arch.lifecycle:runtime:$android_architecture_lifecycle_version"
     kapt "android.arch.lifecycle:compiler:$android_architecture_lifecycle_version"
+
+    // databinding
+    kapt "com.android.databinding:compiler:$android_databinding_version"
 
     // dependency injection via Dagger
     kapt "com.google.dagger:dagger-compiler:$dagger_version"

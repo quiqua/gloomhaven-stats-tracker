@@ -4,9 +4,8 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class StatsModule() {
+class StatsModule {
 
     @Provides
     fun provideModel(): String = "hello world"
-
 }
