@@ -7,7 +7,7 @@ import android.os.Bundle
 import eu.quiqua.gloomhaven.statstracker.R
 import eu.quiqua.gloomhaven.statstracker.base.view.BaseActivity
 import eu.quiqua.gloomhaven.statstracker.databinding.ActivityStatsBinding
-import eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel.StatsViewModel
+import eu.quiqua.gloomhaven.statstracker.features.stats.viewModel.StatsViewModel
 
 class StatsActivity : BaseActivity() {
 
