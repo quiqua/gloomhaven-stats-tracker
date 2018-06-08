@@ -1,30 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <data>
+    <variable
+      name="viewModel"
+      type="eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel.StatsViewModel"
+      />
+  </data>
 
-    <data>
+  <android.support.v7.widget.LinearLayoutCompat
+    android:id="@+id/rootElement"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-        <variable
-            name="viewModel"
-            type="eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel.StatsViewModel" />
-    </data>
+    <LinearLayout
+      android:id="@+id/layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
 
-    <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/rootElement"
+      <TextView
+        android:id="@+id/hpLabel"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/hp"
+        />
 
-        <LinearLayout
-            android:id="@+id/layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@{viewModel.stats}" />
-        </LinearLayout>
-    </android.support.v7.widget.LinearLayoutCompat>
+        <Button
+          android:id="@+id/decreaseHpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="@{() -> viewModel.decreaseHp()}"
+          android:text="@string/minus"
+          />
 
+        <TextView
+          android:id="@+id/currentHpLabel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@{Integer.toString(viewModel.hp)}"
+          />
+
+        <Button
+          android:id="@+id/increaseHpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="@{() -> viewModel.increaseHp()}"
+          android:text="@string/plus"
+          />
+
+      </LinearLayout>
+
+      <TextView
+        android:id="@+id/xpLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/xp"
+        />
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+          android:id="@+id/decreaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="@{() -> viewModel.decreaseXp()}"
+          android:text="@string/minus"
+          />
+
+        <TextView
+          android:id="@+id/currentXpLabel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@{Integer.toString(viewModel.xp)}"
+          />
+
+        <Button
+          android:id="@+id/increaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:onClick="@{() -> viewModel.increaseXp()}"
+          android:text="@string/plus"
+          />
+
+      </LinearLayout>
+    </LinearLayout>
+  </android.support.v7.widget.LinearLayoutCompat>
 </layout>

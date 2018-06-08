@@ -1,7 +1,7 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 
 import com.natpryce.hamkrest.assertion.assert
-import com.natpryce.hamkrest.equalTo
+import com.natpryce.hamkrest.present
 import eu.quiqua.gloomhaven.statstracker.app.Application
 import eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel.StatsViewModel
 import org.jetbrains.spek.api.Spek
@@ -16,7 +16,7 @@ internal class StatsViewModelSpek : Spek({
             val statsViewModel = StatsViewModel(application)
             on("getStats") {
                 it("should return the defined model with its stats") {
-                    assert.that(statsViewModel.getStats(), equalTo("hello world"))
+                    assert.that(statsViewModel.stats, present())
                 }
             }
         }
