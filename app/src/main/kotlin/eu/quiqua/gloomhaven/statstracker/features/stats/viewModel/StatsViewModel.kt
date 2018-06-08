@@ -1,26 +1,13 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import eu.quiqua.gloomhaven.statstracker.app.Application
-import eu.quiqua.gloomhaven.statstracker.features.stats.dagger.DaggerStatsComponent
-import eu.quiqua.gloomhaven.statstracker.features.stats.dagger.StatsModule
+import android.arch.lifecycle.ViewModel
 import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
-import javax.inject.Inject
 
-class StatsViewModel @Inject constructor(application: android.app.Application) : AndroidViewModel(application) {
+class StatsViewModel : ViewModel() {
 
-    init {
-        DaggerStatsComponent.builder()
-            .applicationComponent((application as Application).applicationComponent)
-            .statsModule(StatsModule())
-            .build()
-            .inject(this)
-    }
-
-    @Inject
-    lateinit var stats: Stats
+    var stats = Stats()
 
     val mutableHp: MutableLiveData<Int> = MutableLiveData()
     val mutableXp: MutableLiveData<Int> = MutableLiveData()

@@ -11,8 +11,11 @@ internal class ApplicationSpek : Spek({
     describe("An application is created") {
         on("create") {
             val application = Application()
-            it("provides components via dagger") {
-                assert.that(application.applicationComponent, present())
+            on("onCreate") {
+                application.onCreate()
+                it("provides components via dagger") {
+                    assert.that(application.activityInjector(), present())
+                }
             }
         }
     }
