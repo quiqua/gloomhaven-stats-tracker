@@ -8,5 +8,5 @@ import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
 class StatsModule {
 
     @Provides
-    fun provideStats(): Stats = Stats()
+    fun provideStats(): Stats = Stats(hp = 6, xp = 0)
 }

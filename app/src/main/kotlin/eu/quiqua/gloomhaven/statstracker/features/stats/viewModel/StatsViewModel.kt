@@ -5,9 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
 
-class StatsViewModel : ViewModel() {
-
-    var stats = Stats()
+class StatsViewModel constructor(var stats: Stats) : ViewModel() {
 
     val mutableHp: MutableLiveData<Int> = MutableLiveData()
     val mutableXp: MutableLiveData<Int> = MutableLiveData()
