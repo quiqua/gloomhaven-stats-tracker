@@ -3,7 +3,6 @@ package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 import com.natpryce.hamkrest.assertion.assert
 import com.natpryce.hamkrest.present
 import eu.quiqua.gloomhaven.statstracker.app.Application
-import eu.quiqua.gloomhaven.statstracker.features.stats.viewmodel.StatsViewModel
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
