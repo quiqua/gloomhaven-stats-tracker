@@ -1,48 +1,24 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
 
-class StatsViewModel constructor(var stats: Stats) : ViewModel() {
+class StatsViewModel constructor(val stats: Stats) : ViewModel() {
 
-    val mutableHp: MutableLiveData<Int> = MutableLiveData()
-    val mutableXp: MutableLiveData<Int> = MutableLiveData()
+    var hp: MutableLiveData<Int> = MutableLiveData()
+    var xp: MutableLiveData<Int> = MutableLiveData()
 
-    val hp: LiveData<Int>
-        get() {
-            if (mutableHp.value == null) {
-                mutableHp.value = stats.hp
-            }
-            return mutableHp
-        }
-
-    fun increaseHp() {
-        stats.hp += 1
-        mutableHp.value = stats.hp
+    init {
+        hp.value = stats.hp
+        xp.value = stats.xp
     }
 
-    fun decreaseHp() {
-        stats.hp -= 1
-        mutableHp.value = stats.hp
-    }
+    fun increaseHp() = hp.postValue(stats.increaseHp())
 
-    val xp: LiveData<Int>
-        get() {
-            if (mutableXp.value == null) {
-                mutableXp.value = stats.xp
-            }
-            return mutableXp
-        }
+    fun decreaseHp() = hp.postValue(stats.decreaseHp())
 
-    fun increaseXp() {
-        stats.xp += 1
-        mutableXp.value = stats.xp
-    }
+    fun increaseXp() = xp.postValue(stats.increaseXp())
 
-    fun decreaseXp() {
-        stats.xp -= 1
-        mutableXp.value = stats.xp
-    }
+    fun decreaseXp() = xp.postValue(stats.decreaseXp())
 }

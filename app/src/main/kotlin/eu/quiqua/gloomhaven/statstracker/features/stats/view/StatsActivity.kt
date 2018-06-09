@@ -33,11 +33,11 @@ class StatsActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_stats)
         binding.viewModel = viewModel
 
-        viewModel.mutableHp.observe(this, Observer {
+        viewModel.hp.observe(this, Observer {
             it?.let { binding.currentHpLabel.text = "$it" }
         })
 
-        viewModel.mutableXp.observe(this, Observer {
+        viewModel.xp.observe(this, Observer {
             it?.let { binding.currentXpLabel.text = "$it" }
         })
     }
