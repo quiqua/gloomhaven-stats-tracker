@@ -8,8 +8,8 @@ import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.on
 
 internal class StatsSpek : Spek({
-    describe("Stats") {
-        on("create with default values") {
+    describe("a stats model object") {
+        on("initialization with default values") {
             it("should return default hp value") {
                 val stats = Stats()
                 assert.that(stats.hp, equalTo(0))

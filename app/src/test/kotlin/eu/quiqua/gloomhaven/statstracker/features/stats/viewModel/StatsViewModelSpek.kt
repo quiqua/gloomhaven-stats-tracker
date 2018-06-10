@@ -13,7 +13,7 @@ import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.on
 
 internal class StatsViewModelSpek : Spek({
-    describe("a StatsViewModel") {
+    describe("a statsViewModel") {
         // In order to test LiveData, the `InstantTaskExecutorRule` rule needs to be applied via JUnit.
         // As we are running it with Spek, the "rule" will be implemented in this way instead
         beforeEachTest {
@@ -33,9 +33,7 @@ internal class StatsViewModelSpek : Spek({
             })
         }
 
-        afterEachTest { ArchTaskExecutor.getInstance().setDelegate(null) }
-
-        on("create") {
+        on("creation") {
             val stats = mockk<Stats>()
             every { stats.hp } returns 6
             every { stats.xp } returns 0
@@ -44,5 +42,7 @@ internal class StatsViewModelSpek : Spek({
                 assert.that(StatsViewModel(stats), present())
             }
         }
+
+        afterEachTest { ArchTaskExecutor.getInstance().setDelegate(null) }
     }
 })

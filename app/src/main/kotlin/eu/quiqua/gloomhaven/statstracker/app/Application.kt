@@ -15,14 +15,18 @@ class Application : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
+        inject()
+    }
+
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return dispatchingAndroidInjector
+    }
+
+    fun inject() {
         DaggerApplicationComponent
             .builder()
             .application(this)
             .build()
             .inject(this)
-    }
-
-    override fun activityInjector(): AndroidInjector<Activity> {
-        return dispatchingAndroidInjector
     }
 }

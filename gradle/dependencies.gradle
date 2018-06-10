@@ -58,6 +58,11 @@ dependencies {
         exclude group: "org.jetbrains.kotlin"
     }
 
+    testImplementation("org.jetbrains.spek:spek-subject-extension:$spek_version") {
+        exclude group: "org.jetbrains.kotlin"
+
+    }
+
     // required to enable test suite execution via AS Plugin Spek
     testCompileOnly("org.jetbrains.spek:spek-junit-platform-engine:$spek_version") {
         exclude group: "org.junit.platform"
