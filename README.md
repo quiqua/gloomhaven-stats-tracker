@@ -32,4 +32,14 @@ To format your code, you can run `gradle spotlessApply`.
 
 ## Tests
 
-- recommended Android Studio Plugin: Spek to execute Spek via the IDE
+- IDE: recommended Android Studio Plugin: Spek`
+- CLI: `./gradlew test`
+
+
+## Useful links and blogs:
+
+- https://android.jlelse.eu/android-and-dagger-2-10-androidinjector-5e9c523679a3
+- https://dev.to/autonomousapps/dagger-dot-android-part-2-viewmodels-and-viewmodel-factories-10ii
+- http://mockk.io/
+- http://spekframework.org/
+- https://github.com/general-mobile/kotlin-architecture-components-notes-demo
