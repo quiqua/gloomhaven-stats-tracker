@@ -10,7 +10,9 @@ interface ApplicationComponent {
 
     @Component.Builder
     interface Builder {
-        @BindsInstance fun application(application: android.app.Application): Builder
+        @BindsInstance
+        fun application(application: android.app.Application): Builder
+
         fun build(): ApplicationComponent
     }
 

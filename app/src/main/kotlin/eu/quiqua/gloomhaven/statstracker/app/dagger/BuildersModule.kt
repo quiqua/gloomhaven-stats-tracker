@@ -11,6 +11,7 @@ import eu.quiqua.gloomhaven.statstracker.features.stats.view.StatsActivity
 
 @Module
 abstract class BuildersModule {
+
     @Binds
     @IntoMap
     @ActivityKey(StatsActivity::class)
