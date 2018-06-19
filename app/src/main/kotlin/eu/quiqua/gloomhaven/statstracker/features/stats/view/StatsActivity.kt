@@ -4,31 +4,40 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import dagger.android.AndroidInjection
 import eu.quiqua.gloomhaven.statstracker.R
 import eu.quiqua.gloomhaven.statstracker.base.view.BaseActivity
 import eu.quiqua.gloomhaven.statstracker.databinding.ActivityStatsBinding
 import eu.quiqua.gloomhaven.statstracker.features.stats.viewModel.StatsViewModel
+import eu.quiqua.gloomhaven.statstracker.features.stats.viewModel.StatsViewModelFactory
+import javax.inject.Inject
 
 class StatsActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        init()
+    @Inject
+    lateinit var viewModelFactory: StatsViewModelFactory
+
+    private val viewModel by lazy {
+        ViewModelProviders.of(this, viewModelFactory).get(StatsViewModel::class.java)
     }
 
     private lateinit var binding: ActivityStatsBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
+        init()
+    }
+
     private fun init() {
-        val statsViewModel = ViewModelProviders.of(this).get(StatsViewModel::class.java)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_stats)
-        binding.viewModel = statsViewModel
+        binding.viewModel = viewModel
 
-        statsViewModel.mutableHp.observe(this, Observer {
+        viewModel.hp.observe(this, Observer {
             it?.let { binding.currentHpLabel.text = "$it" }
         })
 
-        statsViewModel.mutableXp.observe(this, Observer {
+        viewModel.xp.observe(this, Observer {
             it?.let { binding.currentXpLabel.text = "$it" }
         })
     }

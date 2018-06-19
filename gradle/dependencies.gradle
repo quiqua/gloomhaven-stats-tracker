@@ -3,7 +3,7 @@ ext {
     android_support_version = '27.1.1'
     android_databinding_version = '3.1.2'
     android_architecture_lifecycle_version = '1.1.1'
-    dagger_version = '2.8'
+    dagger_android_version = '2.16'
     kotlin_version = '1.2.41'
     rx_version = '2.0.2'
     timber_version = '4.1.2'
@@ -11,7 +11,7 @@ ext {
     //Tests
     junit_jupiter_version = '5.2.0'
     junit_platform_version = '1.2.0'
-    mockk_version = '1.8'
+    mockk_version = '1.8.1'
     spek_version = '1.1.5'
     hamkrest_version = '1.4.2.2'
 }
@@ -32,8 +32,10 @@ dependencies {
     kapt "com.android.databinding:compiler:$android_databinding_version"
 
     // dependency injection via Dagger
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_android_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_android_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_android_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_android_version"
 
     // logging via Timber
     implementation "com.jakewharton.timber:timber:$timber_version"
@@ -56,6 +58,11 @@ dependencies {
         exclude group: "org.jetbrains.kotlin"
     }
 
+    testImplementation("org.jetbrains.spek:spek-subject-extension:$spek_version") {
+        exclude group: "org.jetbrains.kotlin"
+
+    }
+
     // required to enable test suite execution via AS Plugin Spek
     testCompileOnly("org.jetbrains.spek:spek-junit-platform-engine:$spek_version") {
         exclude group: "org.junit.platform"
@@ -71,4 +78,5 @@ dependencies {
     testImplementation "io.mockk:mockk:$mockk_version"
 
     testImplementation "com.natpryce:hamkrest:$hamkrest_version"
+    testImplementation "android.arch.core:core-testing:$android_architecture_lifecycle_version"
 }

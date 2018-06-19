@@ -1,63 +1,24 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.viewModel
 
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import eu.quiqua.gloomhaven.statstracker.app.Application
-import eu.quiqua.gloomhaven.statstracker.features.stats.dagger.DaggerStatsComponent
-import eu.quiqua.gloomhaven.statstracker.features.stats.dagger.StatsModule
+import android.arch.lifecycle.ViewModel
 import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
-import javax.inject.Inject
 
-class StatsViewModel @Inject constructor(application: android.app.Application) : AndroidViewModel(application) {
+class StatsViewModel constructor(val stats: Stats) : ViewModel() {
+
+    var hp: MutableLiveData<Int> = MutableLiveData()
+    var xp: MutableLiveData<Int> = MutableLiveData()
 
     init {
-        DaggerStatsComponent.builder()
-            .applicationComponent((application as Application).applicationComponent)
-            .statsModule(StatsModule())
-            .build()
-            .inject(this)
+        hp.value = stats.hp
+        xp.value = stats.xp
     }
 
-    @Inject
-    lateinit var stats: Stats
+    fun increaseHp() = hp.postValue(stats.increaseHp())
 
-    val mutableHp: MutableLiveData<Int> = MutableLiveData()
-    val mutableXp: MutableLiveData<Int> = MutableLiveData()
+    fun decreaseHp() = hp.postValue(stats.decreaseHp())
 
-    val hp: LiveData<Int>
-        get() {
-            if (mutableHp.value == null) {
-                mutableHp.value = stats.hp
-            }
-            return mutableHp
-        }
+    fun increaseXp() = xp.postValue(stats.increaseXp())
 
-    fun increaseHp() {
-        stats.hp += 1
-        mutableHp.value = stats.hp
-    }
-
-    fun decreaseHp() {
-        stats.hp -= 1
-        mutableHp.value = stats.hp
-    }
-
-    val xp: LiveData<Int>
-        get() {
-            if (mutableXp.value == null) {
-                mutableXp.value = stats.xp
-            }
-            return mutableXp
-        }
-
-    fun increaseXp() {
-        stats.xp += 1
-        mutableXp.value = stats.xp
-    }
-
-    fun decreaseXp() {
-        stats.xp -= 1
-        mutableXp.value = stats.xp
-    }
+    fun decreaseXp() = xp.postValue(stats.decreaseXp())
 }

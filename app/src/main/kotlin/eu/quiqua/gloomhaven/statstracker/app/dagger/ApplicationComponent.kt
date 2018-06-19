@@ -1,18 +1,20 @@
 package eu.quiqua.gloomhaven.statstracker.app.dagger
 
-import android.content.Context
-import android.content.SharedPreferences
+import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjectionModule
 import eu.quiqua.gloomhaven.statstracker.app.Application
-import javax.inject.Singleton
 
-@Singleton
-@Component(modules = [(ApplicationModule::class)])
+@Component(modules = [AndroidInjectionModule::class, ApplicationModule::class, BuildersModule::class])
 interface ApplicationComponent {
 
-    val application: Application
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: android.app.Application): Builder
 
-    val context: Context
+        fun build(): ApplicationComponent
+    }
 
-    val preferences: SharedPreferences
+    fun inject(application: Application)
 }
