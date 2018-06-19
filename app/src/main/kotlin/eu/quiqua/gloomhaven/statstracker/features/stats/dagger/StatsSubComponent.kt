@@ -4,7 +4,7 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 import eu.quiqua.gloomhaven.statstracker.features.stats.view.StatsActivity
 
-@Subcomponent(modules = [(StatsModule::class)])
+@Subcomponent(modules = [StatsModule::class])
 interface StatsSubComponent : AndroidInjector<StatsActivity> {
 
     @Subcomponent.Builder
