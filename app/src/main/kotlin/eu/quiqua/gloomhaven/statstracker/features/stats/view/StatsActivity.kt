@@ -40,5 +40,17 @@ class StatsActivity : BaseActivity() {
         viewModel.xp.observe(this, Observer {
             it?.let { binding.currentXpLabel.text = "$it" }
         })
+
+        viewModel.decreasableHp.observe(this, Observer {
+            it?.let { binding.decreaseHpButton.isEnabled = it }
+        })
+
+        viewModel.decreasableXp.observe(this, Observer {
+            it?.let { binding.decreaseXpButton.isEnabled = it }
+        })
+
+        viewModel.increasableHp.observe(this, Observer {
+            it?.let { binding.increaseHpButton.isEnabled = it }
+        })
     }
 }
