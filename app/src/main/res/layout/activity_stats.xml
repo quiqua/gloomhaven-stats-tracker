@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  >
 
   <data>
     <variable
@@ -8,16 +10,21 @@
       />
   </data>
 
-  <android.support.v7.widget.LinearLayoutCompat
-    android:id="@+id/rootElement"
+  <LinearLayout
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    android:orientation="vertical"
+    android:paddingBottom="32dp"
+    android:paddingTop="64dp"
     >
 
+
     <LinearLayout
-      android:id="@+id/layout"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
       android:orientation="vertical"
       >
 
@@ -27,41 +34,59 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/hp"
+        android:textColor="@color/white"
         />
 
       <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="horizontal"
         >
 
         <Button
           android:id="@+id/decreaseHpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
+          style="@style/hollow_button"
+          android:layout_width="@dimen/nine_column"
+          android:layout_height="@dimen/nine_column"
           android:onClick="@{() -> viewModel.decreaseHp()}"
           android:text="@string/minus"
+          android:textSize="24sp"
           />
 
         <TextView
           android:id="@+id/currentHpLabel"
-          android:layout_width="wrap_content"
+          android:layout_width="@dimen/four_column"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
+          android:layout_marginLeft="@dimen/two_column"
+          android:layout_marginRight="@dimen/two_column"
+          android:gravity="center"
           android:text="@{Integer.toString(viewModel.hp)}"
+          android:textColor="@color/white"
+          android:textSize="24sp"
+          tools:text="0"
           />
 
         <Button
           android:id="@+id/increaseHpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
+          style="@style/hollow_button"
+          android:layout_width="@dimen/nine_column"
+          android:layout_height="@dimen/nine_column"
           android:onClick="@{() -> viewModel.increaseHp()}"
           android:text="@string/plus"
+          android:textSize="24sp"
           />
 
       </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="vertical"
+      >
 
       <TextView
         android:id="@+id/xpLabel"
@@ -69,41 +94,50 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/xp"
+        android:textColor="@color/white"
         />
 
       <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="horizontal"
         >
 
         <Button
           android:id="@+id/decreaseXpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
+          style="@style/hollow_button"
+          android:layout_width="@dimen/nine_column"
+          android:layout_height="@dimen/nine_column"
           android:onClick="@{() -> viewModel.decreaseXp()}"
           android:text="@string/minus"
+          android:textSize="24sp"
           />
 
         <TextView
           android:id="@+id/currentXpLabel"
-          android:layout_width="wrap_content"
+          android:layout_width="@dimen/four_column"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
+          android:layout_marginLeft="@dimen/two_column"
+          android:layout_marginRight="@dimen/two_column"
+          android:gravity="center"
           android:text="@{Integer.toString(viewModel.xp)}"
+          android:textColor="@color/white"
+          android:textSize="24sp"
+          tools:text="0"
           />
 
         <Button
           android:id="@+id/increaseXpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
+          style="@style/hollow_button"
+          android:layout_width="@dimen/nine_column"
+          android:layout_height="@dimen/nine_column"
           android:onClick="@{() -> viewModel.increaseXp()}"
           android:text="@string/plus"
+          android:textSize="24sp"
           />
 
       </LinearLayout>
     </LinearLayout>
-  </android.support.v7.widget.LinearLayoutCompat>
+  </LinearLayout>
 </layout>
