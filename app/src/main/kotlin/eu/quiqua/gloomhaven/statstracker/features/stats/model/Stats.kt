@@ -2,9 +2,11 @@ package eu.quiqua.gloomhaven.statstracker.features.stats.model
 
 class Stats(var hp: Int = 0, var xp: Int = 0) {
 
-    private val MAX_HP = 26
-    private val MIN_HP = 0
-    private val MIN_XP = 0
+    companion object {
+        private const val MAX_HP = 26
+        private const val MIN_HP = 0
+        private const val MIN_XP = 0
+    }
 
     fun increaseHp(): Int {
         if (hp < MAX_HP) {
