@@ -4,7 +4,7 @@
     <bitmap android:src="@drawable/minus_hp_button_pressed"/>
   </item>
   <item android:state_enabled="false">
-    <bitmap android:src="@drawable/minus_hp_button"/>
+    <bitmap android:src="@drawable/minus_hp_button_disabled"/>
   </item>
   <item>
     <bitmap android:src="@drawable/minus_hp_button"/>

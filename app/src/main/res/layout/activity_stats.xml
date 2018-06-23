@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
   >
 
   <data>
+
     <variable
       name="viewModel"
       type="eu.quiqua.gloomhaven.statstracker.features.stats.viewModel.StatsViewModel"
@@ -29,8 +30,10 @@
       >
 
       <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         >
 
         <TextView
@@ -38,53 +41,73 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/hp"
-          android:text="1"
+          android:text="@{Integer.toString(viewModel.hp)}"
           android:textSize="32sp"
           android:textColor="@color/white"
+          android:gravity="center"
+          android:paddingTop="@dimen/three_column"
+          android:fontFamily="@font/pirata_one"
+          tools:text="12"
           />
 
         <ImageButton
+          android:id="@+id/decreaseHpButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/button_minus_hp"
           android:text="@string/plus"
+          android:onClick="@{() -> viewModel.decreaseHp()}"
+          android:enabled="@{viewModel.decreasableHp}"
           />
 
         <ImageButton
+          android:id="@+id/increaseHpButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/button_plus_hp"
+          android:onClick="@{() -> viewModel.increaseHp()}"
+          android:enabled="@{viewModel.increasableHp}"
+
           />
 
       </LinearLayout>
 
       <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         >
 
-        <ImageView
+        <TextView
+          android:id="@+id/xpLabel"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:src="@drawable/xp"
-          />
-
-        <Button
-          android:layout_width="72dp"
-          android:layout_height="72dp"
-          android:text="@string/minus"
+          android:background="@drawable/xp"
+          android:text="@{Integer.toString(viewModel.xp)}"
           android:textSize="32sp"
-          android:background="@drawable/glowing_xp_circle"
-
+          android:textColor="@color/white"
+          tools:text="12"
+          android:gravity="center"
+          android:fontFamily="@font/pirata_one"
           />
 
-        <Button
-          android:layout_width="72dp"
-          android:layout_height="72dp"
+        <ImageButton
+          android:id="@+id/decreaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/button_minus_xp"
           android:text="@string/plus"
-          android:textSize="32sp"
-          android:background="@drawable/glowing_xp_circle"
+          android:onClick="@{() -> viewModel.decreaseXp()}"
+          android:enabled="@{viewModel.decreasableXp}"
+          />
 
+        <ImageButton
+          android:id="@+id/increaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/button_plus_xp"
+          android:onClick="@{() -> viewModel.increaseXp()}"
           />
 
       </LinearLayout>

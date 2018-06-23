@@ -1,5 +1,6 @@
 package eu.quiqua.gloomhaven.statstracker.features.stats.view
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -32,24 +33,24 @@ class StatsActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_stats)
         binding.viewModel = viewModel
 
-//        viewModel.hp.observe(this, Observer {
-//            it?.let { binding.currentHpLabel.text = "$it" }
-//        })
-//
-//        viewModel.xp.observe(this, Observer {
-//            it?.let { binding.currentXpLabel.text = "$it" }
-//        })
-//
-//        viewModel.decreasableHp.observe(this, Observer {
-//            it?.let { binding.decreaseHpButton.isEnabled = it }
-//        })
-//
-//        viewModel.decreasableXp.observe(this, Observer {
-//            it?.let { binding.decreaseXpButton.isEnabled = it }
-//        })
-//
-//        viewModel.increasableHp.observe(this, Observer {
-//            it?.let { binding.increaseHpButton.isEnabled = it }
-//        })
+        viewModel.hp.observe(this, Observer {
+            it?.let { binding.hpLabel.text ="$it" }
+        })
+
+        viewModel.xp.observe(this, Observer {
+            it?.let { binding.xpLabel.text = "$it" }
+        })
+
+       viewModel.decreasableHp.observe(this, Observer {
+            it?.let { binding.decreaseHpButton.isEnabled = it }
+        })
+
+        viewModel.decreasableXp.observe(this, Observer {
+            it?.let { binding.decreaseXpButton.isEnabled = it }
+        })
+
+        viewModel.increasableHp.observe(this, Observer {
+            it?.let { binding.increaseHpButton.isEnabled = it }
+        })
     }
 }
