@@ -36,6 +36,17 @@
         android:gravity="center"
         >
 
+        <ImageButton
+          android:layout_marginTop="@dimen/two_column"
+          android:id="@+id/decreaseHpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/button_minus_hp"
+          android:text="@string/plus"
+          android:onClick="@{() -> viewModel.decreaseHp()}"
+          android:enabled="@{viewModel.decreasableHp}"
+          />
+
         <TextView
           android:id="@+id/hpLabel"
           android:layout_width="wrap_content"
@@ -51,16 +62,7 @@
           />
 
         <ImageButton
-          android:id="@+id/decreaseHpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:background="@drawable/button_minus_hp"
-          android:text="@string/plus"
-          android:onClick="@{() -> viewModel.decreaseHp()}"
-          android:enabled="@{viewModel.decreasableHp}"
-          />
-
-        <ImageButton
+          android:layout_marginTop="@dimen/two_column"
           android:id="@+id/increaseHpButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -79,6 +81,16 @@
         android:gravity="center"
         >
 
+        <ImageButton
+          android:id="@+id/decreaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/button_minus_xp"
+          android:text="@string/plus"
+          android:onClick="@{() -> viewModel.decreaseXp()}"
+          android:enabled="@{viewModel.decreasableXp}"
+          />
+
         <TextView
           android:id="@+id/xpLabel"
           android:layout_width="wrap_content"
@@ -90,16 +102,6 @@
           tools:text="12"
           android:gravity="center"
           android:fontFamily="@font/pirata_one"
-          />
-
-        <ImageButton
-          android:id="@+id/decreaseXpButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:background="@drawable/button_minus_xp"
-          android:text="@string/plus"
-          android:onClick="@{() -> viewModel.decreaseXp()}"
-          android:enabled="@{viewModel.decreasableXp}"
           />
 
         <ImageButton
