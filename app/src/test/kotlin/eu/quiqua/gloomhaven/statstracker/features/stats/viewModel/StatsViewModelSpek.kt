@@ -37,6 +37,9 @@ internal class StatsViewModelSpek : Spek({
             val stats = mockk<Stats>()
             every { stats.hp } returns 6
             every { stats.xp } returns 0
+            every { stats.hasMinHp() } returns false
+            every { stats.hasMinXp() } returns true
+            every { stats.hasMaxHp() } returns true
 
             it("should initialize without problems") {
                 assert.that(StatsViewModel(stats), present())
