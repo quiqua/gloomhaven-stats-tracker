@@ -34,14 +34,14 @@ class StatsActivity : BaseActivity() {
         binding.viewModel = viewModel
 
         viewModel.hp.observe(this, Observer {
-            it?.let { binding.hpLabel.text ="$it" }
+            it?.let { binding.hpLabel.text = "$it" }
         })
 
         viewModel.xp.observe(this, Observer {
             it?.let { binding.xpLabel.text = "$it" }
         })
 
-       viewModel.decreasableHp.observe(this, Observer {
+        viewModel.decreasableHp.observe(this, Observer {
             it?.let { binding.decreaseHpButton.isEnabled = it }
         })
 

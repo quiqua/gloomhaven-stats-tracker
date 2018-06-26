@@ -12,7 +12,6 @@ class StatsViewModel constructor(val stats: Stats) : ViewModel() {
     var decreasableXp: MutableLiveData<Boolean> = MutableLiveData()
     var increasableHp: MutableLiveData<Boolean> = MutableLiveData()
 
-
     init {
         hp.value = stats.hp
         xp.value = stats.xp
