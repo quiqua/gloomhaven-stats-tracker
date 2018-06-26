@@ -122,6 +122,79 @@
       android:layout_weight="1"
       android:orientation="vertical"
       >
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_wound"
+          android:checked="false"
+          />
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_poison"
+          android:checked="false"
+          />
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_stun"
+          android:checked="false"
+          />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_invisible"
+          android:checked="false"
+          />
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_strengthen"
+          android:checked="false"
+          />
+
+
+      </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_immobilize"
+          android:checked="false"
+          />
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_muddle"
+          android:checked="false"
+          />
+
+        <CheckBox
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/button_disarm"
+          android:checked="false"
+          />
+      </LinearLayout>
     </LinearLayout>
   </LinearLayout>
 </layout>
