@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:keepScreenOn="true"
   >
 
   <data>
@@ -25,10 +25,10 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_weight="1"
-      android:orientation="vertical"
       android:layout_gravity="center"
+      android:layout_weight="1"
       android:gravity="center"
+      android:orientation="vertical"
       >
 
       <LinearLayout
@@ -39,14 +39,14 @@
         >
 
         <ImageButton
-          android:layout_marginTop="@dimen/two_column"
           android:id="@+id/decreaseHpButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
           android:background="@drawable/button_minus_hp"
-          android:text="@string/plus"
-          android:onClick="@{() -> viewModel.decreaseHp()}"
           android:enabled="@{viewModel.decreasableHp}"
+          android:onClick="@{() -> viewModel.decreaseHp()}"
+          android:text="@string/plus"
           />
 
         <TextView
@@ -54,23 +54,23 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/hp"
-          android:text="@{Integer.toString(viewModel.hp)}"
-          android:textSize="32sp"
-          android:textColor="@color/white"
+          android:fontFamily="@font/pirata_one"
           android:gravity="center"
           android:paddingTop="@dimen/three_column"
-          android:fontFamily="@font/pirata_one"
+          android:text="@{Integer.toString(viewModel.hp)}"
+          android:textColor="@color/white"
+          android:textSize="32sp"
           tools:text="12"
           />
 
         <ImageButton
-          android:layout_marginTop="@dimen/two_column"
           android:id="@+id/increaseHpButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
           android:background="@drawable/button_plus_hp"
-          android:onClick="@{() -> viewModel.increaseHp()}"
           android:enabled="@{viewModel.increasableHp}"
+          android:onClick="@{() -> viewModel.increaseHp()}"
 
           />
 
@@ -88,9 +88,9 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/button_minus_xp"
-          android:text="@string/plus"
-          android:onClick="@{() -> viewModel.decreaseXp()}"
           android:enabled="@{viewModel.decreasableXp}"
+          android:onClick="@{() -> viewModel.decreaseXp()}"
+          android:text="@string/plus"
           />
 
         <TextView
@@ -98,12 +98,12 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:background="@drawable/xp"
-          android:text="@{Integer.toString(viewModel.xp)}"
-          android:textSize="32sp"
-          android:textColor="@color/white"
-          tools:text="12"
-          android:gravity="center"
           android:fontFamily="@font/pirata_one"
+          android:gravity="center"
+          android:text="@{Integer.toString(viewModel.xp)}"
+          android:textColor="@color/white"
+          android:textSize="32sp"
+          tools:text="12"
           />
 
         <ImageButton
@@ -121,9 +121,9 @@
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="0dp"
+      android:layout_gravity="center"
       android:layout_weight="1"
       android:gravity="center"
-      android:layout_gravity="center"
 
       android:orientation="vertical"
       >
@@ -136,16 +136,16 @@
         <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:orientation="vertical"
-          android:gravity="center"
           android:layout_gravity="center"
+          android:gravity="center"
+          android:orientation="vertical"
           >
 
           <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:gravity="center"
             >
             <CheckBox
               android:layout_width="wrap_content"
@@ -165,8 +165,8 @@
           <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:gravity="center"
             >
             <CheckBox
               android:layout_width="wrap_content"
@@ -193,8 +193,8 @@
           <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
+            android:gravity="center"
             >
 
             <CheckBox
