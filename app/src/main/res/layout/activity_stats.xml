@@ -148,17 +148,21 @@
             android:gravity="center"
             >
             <CheckBox
+              android:id="@+id/invisibleCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_invisible"
-              android:checked="false"
+              android:checked="@{viewModel.invisible}"
+              android:onClick="@{() -> viewModel.toggleInvisible()}"
               />
 
             <CheckBox
+              android:id="@+id/strengthenCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_strengthen"
-              android:checked="false"
+              android:checked="@{viewModel.strengthend}"
+              android:onClick="@{() -> viewModel.toggleStrengthen()}"
               />
           </LinearLayout>
 
@@ -169,24 +173,30 @@
             android:gravity="center"
             >
             <CheckBox
+              android:id="@+id/woundCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_wound"
-              android:checked="false"
+              android:checked="@{viewModel.wounded}"
+              android:onClick="@{() -> viewModel.toggleWound()}"
               />
 
             <CheckBox
+              android:id="@+id/poisonCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_poison"
-              android:checked="false"
+              android:checked="@{viewModel.poisoned}"
+              android:onClick="@{() -> viewModel.togglePoison()}"
               />
 
             <CheckBox
+              android:id="@+id/stunCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_stun"
-              android:checked="false"
+              android:checked="@{viewModel.stunned}"
+              android:onClick="@{() -> viewModel.toggleStun()}"
               />
           </LinearLayout>
 
@@ -198,24 +208,30 @@
             >
 
             <CheckBox
+              android:id="@+id/immobilizeCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_immobilize"
-              android:checked="false"
+              android:checked="@{viewModel.immobilized}"
+              android:onClick="@{() -> viewModel.toggleImmobilize()}"
               />
 
             <CheckBox
+              android:id="@+id/muddleCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_muddle"
-              android:checked="false"
+              android:checked="@{viewModel.muddled}"
+              android:onClick="@{() -> viewModel.toggleMuddle()}"
               />
 
             <CheckBox
+              android:id="@+id/disarmCheckbox"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:button="@drawable/button_disarm"
-              android:checked="false"
+              android:checked="@{viewModel.disarmed}"
+              android:onClick="@{() -> viewModel.toggleDisarm()}"
               />
           </LinearLayout>
         </LinearLayout>

@@ -26,13 +26,17 @@ class StatsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        init()
+        initializeDatabinding()
+        observeStats()
+        observeConditions()
     }
 
-    private fun init() {
+    private fun initializeDatabinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_stats)
         binding.viewModel = viewModel
+    }
 
+    private fun observeStats() {
         viewModel.hp.observe(this, Observer {
             it?.let { binding.hpLabel.text = "$it" }
         })
@@ -51,6 +55,40 @@ class StatsActivity : BaseActivity() {
 
         viewModel.increasableHp.observe(this, Observer {
             it?.let { binding.increaseHpButton.isEnabled = it }
+        })
+    }
+
+    private fun observeConditions() {
+        viewModel.disarmed.observe(this, Observer {
+            it?.let { binding.disarmCheckbox.isChecked = it }
+        })
+
+        viewModel.immobilized.observe(this, Observer {
+            it?.let { binding.immobilizeCheckbox.isChecked = it }
+        })
+
+        viewModel.invisible.observe(this, Observer {
+            it?.let { binding.invisibleCheckbox.isChecked = it }
+        })
+
+        viewModel.muddled.observe(this, Observer {
+            it?.let { binding.muddleCheckbox.isChecked = it }
+        })
+
+        viewModel.poisoned.observe(this, Observer {
+            it?.let { binding.poisonCheckbox.isChecked = it }
+        })
+
+        viewModel.strengthend.observe(this, Observer {
+            it?.let { binding.strengthenCheckbox.isChecked = it }
+        })
+
+        viewModel.stunned.observe(this, Observer {
+            it?.let { binding.stunCheckbox.isChecked = it }
+        })
+
+        viewModel.wounded.observe(this, Observer {
+            it?.let { binding.woundCheckbox.isChecked = it }
         })
     }
 }

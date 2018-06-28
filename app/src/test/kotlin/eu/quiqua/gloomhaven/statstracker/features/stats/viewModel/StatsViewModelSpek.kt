@@ -4,6 +4,7 @@ import android.arch.core.executor.ArchTaskExecutor
 import android.arch.core.executor.TaskExecutor
 import com.natpryce.hamkrest.assertion.assert
 import com.natpryce.hamkrest.present
+import eu.quiqua.gloomhaven.statstracker.features.stats.model.Condition
 import eu.quiqua.gloomhaven.statstracker.features.stats.model.Stats
 import io.mockk.every
 import io.mockk.mockk
@@ -40,6 +41,14 @@ internal class StatsViewModelSpek : Spek({
             every { stats.hasMinHp() } returns false
             every { stats.hasMinXp() } returns true
             every { stats.hasMaxHp() } returns true
+            every { stats.disarmed } returns Condition.Disarm()
+            every { stats.immobilized } returns Condition.Immobilize()
+            every { stats.invisible } returns Condition.Invisible()
+            every { stats.muddled } returns Condition.Muddle()
+            every { stats.poisoned } returns Condition.Poison()
+            every { stats.strenghened } returns Condition.Strengthen()
+            every { stats.stunned } returns Condition.Stun()
+            every { stats.wounded } returns Condition.Wound()
 
             it("should initialize without problems") {
                 assert.that(StatsViewModel(stats), present())
