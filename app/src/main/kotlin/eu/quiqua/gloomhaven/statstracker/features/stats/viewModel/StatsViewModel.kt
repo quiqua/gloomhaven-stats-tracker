@@ -26,14 +26,14 @@ class StatsViewModel constructor(val stats: Stats) : ViewModel() {
         decreasableHp.value = !stats.hasMinHp()
         decreasableXp.value = !stats.hasMinXp()
         increasableHp.value = !stats.hasMaxHp()
-        disarmed.value = stats.disarmed.isActive()
-        immobilized.value = stats.immobilized.isActive()
-        invisible.value = stats.invisible.isActive()
-        muddled.value = stats.muddled.isActive()
-        poisoned.value = stats.poisoned.isActive()
-        strengthend.value = stats.strenghened.isActive()
-        stunned.value = stats.stunned.isActive()
-        wounded.value = stats.wounded.isActive()
+        disarmed.value = stats.disarmed.active
+        immobilized.value = stats.immobilized.active
+        invisible.value = stats.invisible.active
+        muddled.value = stats.muddled.active
+        poisoned.value = stats.poisoned.active
+        strengthend.value = stats.strenghened.active
+        stunned.value = stats.stunned.active
+        wounded.value = stats.wounded.active
     }
 
     fun increaseHp() {
