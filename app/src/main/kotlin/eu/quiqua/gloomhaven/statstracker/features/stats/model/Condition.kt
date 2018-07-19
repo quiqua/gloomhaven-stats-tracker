@@ -11,7 +11,7 @@ sealed class Condition() {
     class Wound : Condition()
 
     var active: Boolean = false
-    
+
     fun toggle(): Boolean {
         active = active.not()
         return active
