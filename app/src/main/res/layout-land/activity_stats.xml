@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:keepScreenOn="true"
+  >
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="eu.quiqua.gloomhaven.statstracker.features.stats.viewModel.StatsViewModel"
+      />
+  </data>
+
+  <LinearLayout
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="32dp"
+    >
+
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_gravity="center"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:orientation="horizontal"
+      >
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <ImageButton
+          android:id="@+id/decreaseHpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
+          android:background="@drawable/button_minus_hp"
+          android:enabled="@{viewModel.decreasableHp}"
+          android:onClick="@{() -> viewModel.decreaseHp()}"
+          android:text="@string/plus"
+          />
+
+        <TextView
+          android:id="@+id/hpLabel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/hp"
+          android:fontFamily="@font/pirata_one"
+          android:gravity="center"
+          android:paddingTop="@dimen/three_column"
+          android:text="@{Integer.toString(viewModel.hp)}"
+          android:textColor="@color/white"
+          android:textSize="32sp"
+          tools:text="12"
+          />
+
+        <ImageButton
+          android:id="@+id/increaseHpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
+          android:background="@drawable/button_plus_hp"
+          android:enabled="@{viewModel.increasableHp}"
+          android:onClick="@{() -> viewModel.increaseHp()}"
+
+          />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <ImageButton
+          android:id="@+id/decreaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
+          android:background="@drawable/button_minus_xp"
+          android:enabled="@{viewModel.decreasableXp}"
+          android:onClick="@{() -> viewModel.decreaseXp()}"
+          android:text="@string/plus"
+          />
+
+        <TextView
+          android:id="@+id/xpLabel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="@drawable/xp"
+          android:fontFamily="@font/pirata_one"
+          android:gravity="center"
+          android:text="@{Integer.toString(viewModel.xp)}"
+          android:textColor="@color/white"
+          android:textSize="32sp"
+          android:paddingTop="@dimen/two_column"
+          tools:text="12"
+          />
+
+        <ImageButton
+          android:id="@+id/increaseXpButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/two_column"
+          android:background="@drawable/button_plus_xp"
+          android:onClick="@{() -> viewModel.increaseXp()}"
+          />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_gravity="center"
+      android:layout_weight="1"
+      android:gravity="center"
+
+      android:orientation="vertical"
+      >
+
+      <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_gravity="center"
+          android:gravity="center"
+          android:orientation="horizontal"
+          >
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <CheckBox
+              android:id="@+id/invisibleCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_invisible"
+              android:checked="@{viewModel.invisible}"
+              android:onClick="@{() -> viewModel.toggleInvisible()}"
+              />
+
+            <CheckBox
+              android:id="@+id/strengthenCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_strengthen"
+              android:checked="@{viewModel.strengthend}"
+              android:onClick="@{() -> viewModel.toggleStrengthen()}"
+              />
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <CheckBox
+              android:id="@+id/woundCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_wound"
+              android:checked="@{viewModel.wounded}"
+              android:onClick="@{() -> viewModel.toggleWound()}"
+              />
+
+            <CheckBox
+              android:id="@+id/poisonCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_poison"
+              android:checked="@{viewModel.poisoned}"
+              android:onClick="@{() -> viewModel.togglePoison()}"
+              />
+
+            <CheckBox
+              android:id="@+id/stunCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_stun"
+              android:checked="@{viewModel.stunned}"
+              android:onClick="@{() -> viewModel.toggleStun()}"
+              />
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+
+            <CheckBox
+              android:id="@+id/immobilizeCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_immobilize"
+              android:checked="@{viewModel.immobilized}"
+              android:onClick="@{() -> viewModel.toggleImmobilize()}"
+              />
+
+            <CheckBox
+              android:id="@+id/muddleCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_muddle"
+              android:checked="@{viewModel.muddled}"
+              android:onClick="@{() -> viewModel.toggleMuddle()}"
+              />
+
+            <CheckBox
+              android:id="@+id/disarmCheckbox"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:button="@drawable/button_disarm"
+              android:checked="@{viewModel.disarmed}"
+              android:onClick="@{() -> viewModel.toggleDisarm()}"
+              />
+          </LinearLayout>
+        </LinearLayout>
+
+      </HorizontalScrollView>
+
+
+    </LinearLayout>
+  </LinearLayout>
+</layout>
